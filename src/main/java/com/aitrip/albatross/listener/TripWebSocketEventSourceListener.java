@@ -75,23 +75,20 @@ public class TripWebSocketEventSourceListener extends EventSourceListener {
                 //美食
 
                 String restaurant = dayTrip.getRestaurant();
-                String[] split1 = restaurant.split("特色菜：");
-                if(split1.length>1){
-                    List<String> foods = new ArrayList<>();
-                    String[] split = split1[1].split("、");
-                    for(String f:split){
-                        String fg = parseHtml(f);
-                        foods.add(fg);
+                if(restaurant != null && restaurant.length() >0){
+                    String[] split1 = restaurant.split("特色菜：");
+                    if(split1.length>1){
+                        List<String> foods = new ArrayList<>();
+                        String[] split = split1[1].split("、");
+                        for(String f:split){
+                            String fg = parseHtml(f);
+                            foods.add(fg);
+                        }
+                        dayTrip.setFoods(foods);
+
                     }
-                    dayTrip.setFoods(foods);
 
                 }
-
-
-
-
-
-
 
                 session.getBasicRemote().sendText(JSONUtil.toJsonPrettyStr(dayTrip));
                 sb  = new StringBuffer();
@@ -159,11 +156,6 @@ public class TripWebSocketEventSourceListener extends EventSourceListener {
         return "";
     }
 
-    public static void main(String[] args) {
-        String s = "海口市美食街（大众点评评分4.2分，特色菜：海南粉、椰子鸡）";
-        String[] split = s.split("特色菜：");
-        System.out.printf("");
 
-    }
 
 }

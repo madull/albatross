@@ -75,7 +75,7 @@ public class TripWebSocket {
     }
 
     public String getJson(String city,String days,String fee){
-        String s = "我想去"+city+"玩"+days+"天，按照下面的json给我生成一样json格式的旅游规划,每天都需要酒店 \n" +
+        String s = "我想去"+city+"玩"+days+"天，按照下面的json给我生成一样json格式的旅游规划,每天只推荐一个酒店 \n" +
                 "[\n" +
                 "  { \"day\":1,\n" +
                 "    \"name\": \"厦门大学\",\n" +
