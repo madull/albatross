@@ -1,14 +1,16 @@
 package com.aitrip.albatross;
 
+import com.unfbx.chatgpt.OpenAiStreamClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class AlbatrossApplication {
+public class Application {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(AlbatrossApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
